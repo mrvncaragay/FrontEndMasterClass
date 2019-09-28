@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { ANIMALS } from '@frontendmasters/pet';
+import React, { useState, useEffect } from 'react';
+import pet, { ANIMALS } from '@frontendmasters/pet';
 
 // Custom Hook
 import useDropDown from './useDropDown';
@@ -9,6 +9,10 @@ const SearchParams = () => {
   const [breeds, setBreeds] = useState([]);
   const [animal, AnimalDropDown] = useDropDown('Animal', 'dog', ANIMALS);
   const [breed, BreedDropDown] = useDropDown('Breed', '', breeds);
+
+  useEffect(() => {
+    pet.breeds('dogs').then(console.log(), console.log())
+  });
 
   return (
     <div className="search-params">

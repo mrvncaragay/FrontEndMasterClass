@@ -33749,7 +33749,7 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
-var _pet = require("@frontendmasters/pet");
+var _pet = _interopRequireWildcard(require("@frontendmasters/pet"));
 
 var _useDropDown5 = _interopRequireDefault(require("./useDropDown"));
 
@@ -33788,6 +33788,9 @@ var SearchParams = function SearchParams() {
       breed = _useDropDown4[0],
       BreedDropDown = _useDropDown4[1];
 
+  (0, _react.useEffect)(function () {
+    _pet.default.breeds('dogs').then(console.log(), console.log());
+  });
   return _react.default.createElement("div", {
     className: "search-params"
   }, _react.default.createElement("h1", null, location), _react.default.createElement("form", {
