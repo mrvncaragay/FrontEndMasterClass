@@ -1,0 +1,14 @@
+// Main
+undefined
+string
+number
+boolean
+object
+symbol
+
+// Maybe 
+undeclared
+null
+function
+array
+bigint (released 2019)
