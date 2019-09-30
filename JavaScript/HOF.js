@@ -46,10 +46,89 @@ function add(sum, n) {
   return sum + n;
 }
 
+//console.log(_.reduce([1, 2, 10], add, 0))
+//console.log(_.reduce({'a': 1, 'b': 2, 'c': 1}, function(result, value, key){
+//   (result[value] || (result[value] = [])).push(key)
+//   return result;
+// }, {}))
 
+// Exercise 2
+const newDevelopment = [
+  {
+      name: 'Miss Scarlet',
+      present: true,
+      rooms: [
+          {kitchen: false},
+          {ballroom: false},
+          {conservatory: true},
+          {'dining room': true},
+          {'billiard room': false},
+          {library: true}
+      ]
+  },
+  {
+      name: 'Reverend Green',
+      present: true,
+      rooms: [
+          {kitchen: true},
+          {ballroom: false},
+          {conservatory: false},
+          {'dining room': false},
+          {'billiard room': true},
+          {library: false}
+      ]
+  },
+  {
+      name: 'Colonel Mustard',
+      present: true,
+      rooms: [
+          {kitchen: false},
+          {ballroom: false},
+          {conservatory: true},
+          {'dining room': false},
+          {'billiard room': true},
+          {library: false}
+      ]
+  },
+  {
+      name: 'Professor Plum',
+      present: true,
+      rooms: [
+          {kitchen: true},
+          {ballroom: false},
+          {conservatory: false},
+          {'dining room': true},
+          {'billiard room': false},
+          {library: false}
+      ]
+  }
+];
 
-console.log(_.reduce([1, 2, 10], add, 0))
-console.log(_.reduce({'a': 1, 'b': 2, 'c': 1}, function(result, value, key){
-  (result[value] || (result[value] = [])).push(key)
-  return result;
-}, {}))
+//Figure out which room no one claims to be the night of the murder from this data set
+
+//newDevelopment
+
+const whoIsInTheRoom = (arr, cb) => { //isIn boolean true if in the room, false not in the room 
+  return arr.map(person => {
+    return {
+      name: person.name,
+      rooms: cb(person.rooms)  
+    }
+  })
+}
+
+const result = whoIsInTheRoom(newDevelopment, function(rooms) {
+  const arr = []
+
+  rooms.forEach(room => {
+    for(let key in room) {
+      if(room[key] === false) {
+        arr.push(room)
+      }
+    }
+  })
+
+  return arr;
+})
+
+console.log(result)
