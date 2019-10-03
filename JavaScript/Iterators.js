@@ -25,14 +25,41 @@
 // console.log(returnNextElement.next())
 
 // Generator
-function *createflow() {
-  const num = 10;
-  const newNum = yield num;
-  yield 5 + newNum;
-  yield 6;
+// function *createflow() {
+//   const num = 10;
+//   const newNum = yield num;
+//   yield 5 + newNum;
+//   yield 6;
+// }
+
+// const returnNextElement = createflow();
+// console.log(returnNextElement.next())
+// console.log(returnNextElement.next(2))
+// console.log(returnNextElement.next())
+
+// Async Generator answer create your own 'Async Away function'
+// function doWhenDataReceived(value) {
+//   returnNextElement.next(value)
+// }
+
+// function *createflow() {
+//   // data received data argument from futureData.then()
+//   const data = yield fectch('...')
+//   console.log(data)
+// }
+
+// const returnNextElement = createflow();
+// const futureData = returnNextElement.next();
+
+// // When data is ready call doWhenDataReceived
+// futureData.then(doWhenDataReceived)
+
+// Async Generator
+async function *createflow() {
+  console.log('me first')
+  const data = await fectch('...')
+  console.log(data)
 }
 
-const returnNextElement = createflow();
-console.log(returnNextElement.next())
-console.log(returnNextElement.next(2))
-console.log(returnNextElement.next())
+createflow();
+console.log('Me second')
