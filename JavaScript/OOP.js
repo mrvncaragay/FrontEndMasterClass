@@ -71,3 +71,33 @@ User1.prototype.sayAge= function() {
 
 const user1 = new User1('Marv', 31);
 user1.sayAge();
+
+
+// Delegation Oriented Design
+
+const AuthController = {
+  authenticate() {
+    server.authenticate(
+      [ this.username, this.password ], 
+      this.handleResponse.bind(this)
+      );
+  },
+
+  handleResponse(resp) {
+    if(!resp.ok) this.displayError(res.msg);
+  }
+};
+
+const LoginFormController = {
+  // Object.assign(Object.create(AuthController), {
+  //   onSubmit() {
+  //     this.username = this.$username.val();
+  //     this.password = this.$password.val();
+  //     this.authenticate();
+  //   },
+
+  //   display(msg) {
+  //     alert(msg)
+  //   }
+  // })
+}
