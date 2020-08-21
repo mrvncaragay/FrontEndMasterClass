@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { defaultTheme, typeScale } from '../utils';
+import { typeScale } from '../utils';
 
 import { applyStyleModifiers } from 'styled-components-modifiers';
 
